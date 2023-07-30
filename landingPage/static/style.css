@@ -1,158 +1,141 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap'); 
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
 
-* {
+*{
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-    text-decoration: none;
-    list-style: none;
-
+    border: 0;
+    vertical-align: baseline;
 }
 
-body {
-    font-family: 'Poppins', sans-serif;
-    background-color: #2e42a7;
+body{
+
+    font-family: sans-serif;
 }
 
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-
-}
-
-.header {
-    background-color: white;
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: cover;
+.head {
     display: flex;
-    align-items: center;
-    min-height: 80vh;
-    padding: 80px 0;
-}
-
-.menu {
-    background-color: black;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    display: flex;
-    align-items: center;
     justify-content: space-between;
-}
-
-.logo {
-    color: blueviolet;
-    font-size: 25px;
-    font-weight: 800;
-    text-transform: uppercase;
-}
-
-.menu .navbar ul li {
-    position: relative;
-    float: left;
-}
-
-.menu .navbar ul li a {
-    font-size: 18px;
-    padding: 20px;
-    color: white;
-    font-weight: 600;
-    display: block;
-}
-
-
-.menu .navbar ul li a:hover {
-    color: blueviolet;
-
-}
-
-#menu{
-    display: none;   
-}
-
-.menu-icono {
-    width: 25px;
-}
-
-.menu label {
-    cursor: pointer;
-    display: none;
-}
-
-.header-content {
-    display: flex;
-}
-
-.header-txt{
-    flex-basis: 50%;
-}
-
-.header-txt h1{
-
-    font-size: 46px;
-    width: 700px;
-    height: 200px;
-    margin: 0 auto; 
-    text-align: center;
-    display: flex;
-    justify-content: top;
-    align-items: top;
-
-}
-
-.btn-1-comencemos {
-    position: absolute;
-    top: 35%;
-    left: 43%;
-    padding: 11px 35px;
-    border: 2px solid rgb(192, 58, 9);
-    border-radius: 25px;
-    
-    
-}
-
-.imgfondo{
-    width: 250px;
-    height: 320px;
-    position: absolute;
-    top: 75%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 1;
-
-}
-
-.imagenphone{
-    padding: 1em;
-    height: 300px;
-    display: flex;
-}
-
-.imgphone {
-    position: absolute;
-    width: 250px;
-    height: 355px;
-    top: 46%;
-    left: 40.5%;
-    background-image: url(/imagen/fondotelefono.gif);
-    background-repeat: round;
-    border-radius: 27px 27px 0px 0px;
-    z-index: 2;
-}
-
-.fondo{
-    width: 1348px;
-    height: 325px;
-    position: absolute;
-    top: 75%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    border-radius: 27px 27px 0px 0px;
-    z-index: 0;
-}
-
-.hola{
+    height: 80px;
     background-color: black;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.navbar{
+    display: flex;
+    margin-right: 10px;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo{
+    margin-left: 30px;
+}
+
+.logo a {
+    text-decoration: none;
+    color: white;
+    text-transform: uppercase;
+    font-size: 20px 20px;
+}
+
+.logo1{
+    display: flex;
+    top: 0;
+    right: 0;
+    left: 0;
+}
+
+.logo1-zt{
+    display: block;
+    padding: 10px 10px;
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 20px;
+}
+
+.logo-container{
+    display: flex;  
+}
+
+.navbar a {
+    display: block;
+    padding: 20px 20px;
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.btm-accs1{
+        background-color: blueviolet;
+        border-radius: 8px;
+        padding: 10px 25px;
+}
+
+.btm-accs{
+    display: flex;
+    align-content: center;
+}
+
+.btm-accs2{
+    background-color: blueviolet;
+    display: block;
+    border-radius: 8px;
+    padding: 20px 40px;
+    font-size: 1.3em;
+}
+
+.btm-cmz{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 20vh;
+}
+
+.title{
+    height: 30vh;
+    margin: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3em;
+    text-align: center;
+}
+
+.img-content{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    
+
+}
+
+.img1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 25em;
+
+}
+
+.img2{
+    position: absolute;
+    top: 32px;
+    left: 535px;
+    z-index: 5;
+}
+
+.img3{
+    position: absolute;
+    top: 222px;
+    left: 675px;
+    width: 260px;
+    height: 355px;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    border-radius: 25px 25px 0px 0px;
 }

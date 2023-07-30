@@ -7,5 +7,6 @@ from appHCI.models import *
 def cargar(request):
     return render(request,'index.html',{})
 
+
 def access(request):
-    return redirect('loginPage')
+    return HttpResponse('Go to hell mthfckr')

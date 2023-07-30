@@ -21,5 +21,5 @@ from . import views
 
 urlpatterns = [
     path('', views.cargar, name='landingPage'),
-    path('access/', include('accessApp.urls'), name='access'),
+    path('a/', include('accessApp.urls')),
 ]
