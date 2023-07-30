@@ -1,0 +1,117 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>zona tecnologica</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+    
+
+    <header class="header">
+        
+        <div class="menu container">
+            <img src="{% static 'media/Logo.png'%}" class="logo">logo</img>
+            <input type="checkbox" id="menu"/>
+            <label for="menu">
+                <img src="{%static 'media/menu.png'%}" class="menu-icono" alt="menu">
+            </label>
+            <nav class="navbar">
+                <ul>
+                    <li><a href="#">Inicio</a></li>
+                    <li><a href="#">Acerca de</a></li>
+                    <li><a href="#">¿Qué ofrecemos?</a></li>
+                    <li><a href="#">Nuestros clientes</a></li>
+                    <li><a href="#">Ayuda</a></li>
+                    <li><a href="#">Contacto</a></li>
+                    <li>
+                        <a href="{% url 'access' %}">Acceder</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
+
+        <div class="header-content container">
+            <div class="header-txt">
+                <h1>Tu oportunidad de entrar al mundo de la tecnologia, facil</h1>
+                <a href="#" class="btn-1-comencemos">Comencemos</a>
+                <div class="imagenphone">
+                    <img src="{%static 'media/marcoIphone.png'%}" class="imgphone" alt="">
+                    <img src="{%static 'media/ftelef.gif'%}" class="imgfondo" alt="">
+                    <img src="{%static 'media/fondopantalla.gif'%}" class="fondo" alt="">
+                    
+                    
+                </div>
+                
+            </div>
+        </div>
+    </header>
+
+    <div class="hola"> Hola </div>
+
+    <main class="product container">
+        
+        <h1>Soluciones para conectar <br>con tus usuarios</h1>
+
+        <div class="product-content">
+
+            <div class="product-1">
+                <div class="product-txt">
+                    <h3>Aplicaciones Mobiles</h3>
+                    <p>Estas aplicaciones están diseñadas para aprovechar las características y capacidades de los dispositivos móviles.</p>
+                    <a href="#" class="btn-1-explorar">Explorar</a>
+                </div>
+            </div> 
+
+            <div class="product-1">
+                <div class="product-txt">
+                    <h3>Aplicaciones Web</h3>
+                    <p>Sabemos lo importante que es tener una presencia en línea efectiva y atractiva, y nuestras aplicaciones web están diseñadas para cumplir con tus necesidades específicas.</p>
+                    <a href="#" class="btn-1-explorar">Explorar</a>
+                </div>
+            </div> 
+
+            <div class="product-1">
+                <div class="product-txt">
+                    <h3>Diseñador de Interfaces de Usuarios</h3>
+                    <p>Ya sea que necesites una interfaz de usuario para una aplicación móvil, un sitio web o un software, nuestro talentoso equipo de diseñadores se encargará de crear una experiencia de usuario impactante y atractiva.</p>
+                    <a href="#" class="btn-1-explorar">Explorar</a>
+                </div>
+            </div> 
+
+            <div class="product-1">
+                <div class="product-txt">
+                    <h3>Estrategia y Marca</h3>
+                    <p>Sabemos que la estrategia y el branding son elementos esenciales para el éxito de cualquier empresa. Nuestro objetivo es colaborar contigo para desarrollar una estrategia sólida que posicione tu marca de manera efectiva y conecte emocionalmente con tu público objetivo.</p>
+                    <a href="#" class="btn-1-explorar">Explorar</a>
+                </div>
+            </div> 
+
+            <div class="product-1">
+                <div class="product-txt">
+                    <h3>Marketing de Alto Rendimiento</h3>
+                    <p>El Performance Marketing se trata de obtener resultados tangibles y medibles. Nuestro enfoque se basa en estrategias impulsadas por datos y en la optimización continua para garantizar que obtengas el mayor retorno de inversión posible.</p>
+                    <a href="#" class="btn-1-explorar">Explorar</a>
+                </div>
+            </div> 
+
+            <div class="product-1">
+                <div class="product-txt">
+                    <h3>Administracion de Proyectos</h3>
+                    <p> Nuestro equipo de profesionales capacitados está listo para colaborar contigo y asegurarse de que tus proyectos se gestionen de manera fluida, dentro del presupuesto y en el tiempo previsto. </p>
+                    <a href="#" class="btn-1-explorar">Explorar</a>
+                </div>
+            </div> 
+
+        </div>
+        <a href="#" class="btn-2explorar-mas">Explorar mas</a>
+    </main>
+
+    
+
+
+</body>
+</html>
