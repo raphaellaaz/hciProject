@@ -6,40 +6,11 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Acceder a la cámara</h1>
-    <video id="video-stream" autoplay playsinline></video>
-    <button id="btn-acceder" onclick="activarCamara()">Activar cámara</button>
-    <button id="btn-apagar" onclick="apagarCamara()" disabled>Apagar cámara</button>
-
-    <script>
-        let stream;
-
-        function activarCamara() {
-            // Acceder a la cámara usando JavaScript
-            navigator.mediaDevices.getUserMedia({ video: true })
-                .then(videoStream => {
-                    stream = videoStream;
-                    // Mostrar el video en el elemento <video>
-                    const videoElement = document.getElementById('video-stream');
-                    videoElement.srcObject = stream;
-                    document.getElementById('btn-apagar').disabled = false;
-                    console.log('Acceso a la cámara exitoso');
-                })
-                .catch(error => {
-                    console.error('Error al acceder a la cámara:', error);
-                });
-        }
-
-        function apagarCamara() {
-            // Detener la transmisión de video y apagar la cámara
-            if (stream) {
-                stream.getTracks().forEach(track => track.stop());
-                const videoElement = document.getElementById('video-stream');
-                videoElement.srcObject = null;
-                document.getElementById('btn-apagar').disabled = true;
-                console.log('Cámara apagada');
-            }
-        }
-    </script>
+    <h1>Registro</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{form.as_p}}
+        <input type="submit" name="Enviar">
+    </form>
 </body>
 </html>
