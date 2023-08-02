@@ -6,10 +6,10 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Registro</h1>
+    <h1>LogIn</h1>
     <form method="post">
         {% csrf_token %}
-        {{form.as_p}}
+        {{formLogin.as_p}}
         <input type="submit" name="Enviar">
     </form>
 </body>
