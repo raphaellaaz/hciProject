@@ -21,3 +21,4 @@ def register(request):
             passw=request.POST.get('password1')
         else:
             return HttpResponse('Contraseñas no coinciden')
+    return render(request, 'register.html', {'formRegister': form })
