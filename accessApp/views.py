@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from . import forms
+from appHCI.models import UserZT
 
 # Create your views here.
 
@@ -17,6 +18,7 @@ def register(request):
     form=forms.UserForm()
     if request.method=='POST':
         usern=request.POST.get('username')
+
         if request.POST.get('password1') == request.POST.get('password2'):
             passw=request.POST.get('password1')
         else:
