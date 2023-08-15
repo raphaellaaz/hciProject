@@ -7,27 +7,14 @@ from django.contrib.auth.models import AbstractUser
 
 
 class TypeUser(models.Model):
-    id=models.UUIDField(default=uuid.uuid4(), editable=False, primary_key=True, null=False)
+    id=models.IntegerField(default=uuid.uuid4(), editable=False, primary_key=True, null=False)
     typeU=models.CharField(max_length=15,default='Invitado', editable=True, null=False)
 
     def __str__(self):
         return self.typeU
-"""
-class UserZT(models.Model):
-    id=models.UUIDField(default=uuid.uuid4(), editable=False, primary_key=True, null=False)
-    ci_user=models.IntegerField(null=False, editable=True)
-    fecha_reg=models.DateField(null=True)
-    fecha_nac=models.DateField(null=False, editable=True )
-    email=models.CharField(max_length=40, default='Email no asignado', null=False, editable=True)
-    telefono=models.CharField(max_length=18, default='Telefono no asignado', null=False, editable=True)
-    estado_user=models.BooleanField(default=True, editable=True)
-    tipo_U=models.ForeignKey(TypeUser, on_delete=models.CASCADE, related_name='R_TipoUser')
-
-    def __str__(self):
-        return self.ci_user"""
     
 class UserZT(AbstractUser):
-    id=models.UUIDField(default=uuid.uuid4(), editable=False, primary_key=True, null=False)
+    id=models.CharField(default=uuid.uuid4,max_length=36, editable=False, primary_key=True, null=False)
     ci_user=models.IntegerField(null=False, editable=True)
     fecha_nac=models.DateField(null=False, editable=True )
     email=models.CharField(max_length=40, default='Email no asignado', null=False, editable=True)
