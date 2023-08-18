@@ -6,7 +6,7 @@ from rest_framework.documentation import include_docs_urls
 
 
 router = routers.DefaultRouter()
-router.register(r'login', views.loginAppView, 'access')
+router.register(r'user', views.loginAppView, 'user')
 
 
 urlpatterns = [

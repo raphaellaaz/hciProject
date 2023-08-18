@@ -6,6 +6,7 @@ from rest_framework.views import APIView
 from rest_framework import viewsets, status
 from .serializer import loginUserSerializer
 from rest_framework.response import Response
+from django.shortcuts import get_object_or_404
 from rest_framework.decorators import action
 from django.contrib.auth import authenticate
 from django.contrib.auth.hashers import make_password
@@ -23,6 +24,18 @@ class loginAppView(viewsets.ModelViewSet):
         request.data['password'] = hashed_password
 
         return super().create(request, *args, **kwargs)
+
+    @action(detail=False, methods=['get'],url_path='(?P<username>[^/.]+)')
+    def readOne(self, request, username=None):
+        try:
+            userInfo=get_object_or_404(UserZT, username=username)
+
+            serializer = self.get_serializer(userInfo)
+            return Response({'user':serializer.data, 'message': 'USer OK'}, status=status.HTTP_200_OK)
+        
+        except UserZT.DoesNotExist:
+            return Response({'message': 'No se ha encontrado usuario'}, status=status.HTTP_404_NOT_FOUND)
+        
 
     @action(detail=False, methods=['post'])
     def loginfun(self, request):

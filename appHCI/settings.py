@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'systemZT',
     'accessApp',
     'rest_framework',
+    'data_gen',
 ]
 
 MIDDLEWARE = [
@@ -59,7 +60,8 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 AUTHENTICATION_BACKENDS = [
-    'django.contrib.auth.backends.ModelBackend',  # Autenticación basada en modelos de usuario
+    # Autenticación basada en modelos de usuario
+    'django.contrib.auth.backends.ModelBackend',
 ]
 
 PASSWORD_HASHERS = [
@@ -94,9 +96,14 @@ WSGI_APPLICATION = 'appHCI.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'systemZT',
+        'USER': 'root',
+        'PASSWORD': 'Oso2020Oso',
+        'HOST': 'localhost',  # O la dirección IP de tu servidor MySQL
+        'PORT': '3306',       # El puerto por defecto de MySQL
+    },
+    
 }
 
 
@@ -121,8 +128,9 @@ AUTH_PASSWORD_VALIDATORS = [
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",  # Cambia esto al dominio de tu frontend
     "http://192.168.0.121:5173",
-    
-   
+    "https://82de-200-24-153-37.ngrok-free.app",
+
+
 ]
 
 CORS_ALLOW_CREDENTIALS = True
@@ -149,8 +157,6 @@ CORS_ALLOW_HEADERS = [
 ]
 
 
-
-
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
@@ -163,7 +169,7 @@ USE_I18N = True
 USE_TZ = True
 
 MEDIA_URL = '/url/'
-MEDIA_ROOT = os.path.join(BASE_DIR,'media')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
@@ -174,6 +180,6 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-REST_FRAMEWORK= {
+REST_FRAMEWORK = {
     'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema'
 }
