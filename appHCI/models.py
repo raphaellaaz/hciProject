@@ -16,9 +16,9 @@ class TypeUser(models.Model):
 class UserZT(AbstractUser):
     id=models.CharField(default=uuid.uuid4,max_length=36, editable=False, primary_key=True, null=False)
     ci_user=models.IntegerField(null=False, editable=True)
-    fecha_nac=models.DateField(null=False, editable=True )
+    fecha_nac=models.DateField(null=True, editable=True )
     email=models.CharField(max_length=40, default='Email no asignado', null=False, editable=True)
-    telefono=models.CharField(max_length=18, default='Telefono no asignado', null=False, editable=True)
+    telefono=models.CharField(max_length=18, default='Telefono no asignado', null=True, editable=True)
     tipo_U=models.ForeignKey(TypeUser, on_delete=models.CASCADE, related_name='R_TipoUser')
 
     groups = models.ManyToManyField(
