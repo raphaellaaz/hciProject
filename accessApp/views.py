@@ -1,10 +1,9 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from . import forms
-from appHCI.models import UserZT
+from appHCI.models import *
 from rest_framework.views import APIView
 from rest_framework import viewsets, status
-from .serializer import loginUserSerializer
+from .serializer import *
 from rest_framework.response import Response
 from django.shortcuts import get_object_or_404
 from rest_framework.decorators import action
@@ -13,8 +12,8 @@ from django.contrib.auth.hashers import make_password
 
 # Create your views here.
 
-class loginAppView(viewsets.ModelViewSet):
-    serializer_class = loginUserSerializer
+class userAppView(viewsets.ModelViewSet):
+    serializer_class = userSerializer
     queryset = UserZT.objects.all()
     
     def create(self, request, *args, **kwargs):
@@ -45,31 +44,62 @@ class loginAppView(viewsets.ModelViewSet):
         user = authenticate(username=usernam, password=passwor)
 
         if user is not None:
-            
             return Response({'message':'Acceso Correcto'}, status=status.HTTP_200_OK)
         else:
             
-            return Response({'error': 'Credenciales no validas'}, status=status.HTTP_401_UNAUTHORIZED)
+            return Response({'error': 'Credenciales no validas'+str(passwor)}, status=status.HTTP_401_UNAUTHORIZED)
    
 
-def loginUserView(APIView):
-    def post(self, request):
-        usern=request.data.get('username')
-        passw=request.data.get('password')
+class solutionsAppView(viewsets.ModelViewSet):
+    serializer_class = solutionsSerializer
+    queryset = Solucion.objects.all()
 
-        user= authenticate(username=usern, password=passw)
+class typeSolAppView(viewsets.ModelViewSet):
+    serializer_class = typeSolSerializer
+    queryset = TypeSol.objects.all()
 
-def registerUserView(APIView):
-    def post(self, request, format=None):
-        serializer = loginUserSerializer(data=request.data)  # Crea una instancia del serializador con los datos de la solicitud
+class negociosAppView(viewsets.ModelViewSet):
+    serializer_class = negociosSerializer    
+    queryset = U_Negocios.objects.all()
+class typeUserAppView(viewsets.ModelViewSet):
+    serializer_class = typeUserSerializer
+    queryset = TypeUser.objects.all()
 
-        if serializer.is_valid():  # Verifica si los datos son válidos según el serializador
-            serializer.save()  # Guarda los datos en la base de datos
-            return Response({"mensaje": "Registro creado exitosamente."}, status=status.HTTP_201_CREATED)  # Responde con un mensaje de éxito y código de estado 201 (Created)
-        else:
-            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)  # Responde con los errores de validación y código de estado 400 (Bad Request)
+class estadoSolAppView(viewsets.ModelViewSet):
+    serializer_class = estadoSolSerializer
+    queryset = EstadoSol.objects.all()
 
-def login(request):
-    pass
-def recover(request):
-    pass
+class infoSolAppView(viewsets.ModelViewSet):
+    serializer_class = infoSolSerializer
+    queryset = InfoSol.objects.all()
+
+class suscritosAppView(viewsets.ModelViewSet):
+    serializer_class = suscritosSerializer
+    queryset = Suscritos.objects.all()
+
+    @action(detail=False, methods=['get'],url_path='(?P<idsol>[^/.]+)')
+    def sus(self,request, idsol=None):
+        try:
+            solInfo=get_object_or_404(Solucion, id=idsol)
+            susInfo=Suscritos.objects.filter( id_solution=solInfo.id)
+            countInfo=susInfo.count()
+            userInfos=[]
+
+            for sus in susInfo:
+                user=UserZT.objects.get(id=sus.id_user.id)
+                user.password='Restringed';
+                userInfos.append(user)
+
+            serializerUser = userSerializer(userInfos, many=True)
+            return Response({'users':serializerUser.data}, status=status.HTTP_200_OK)
+        
+        
+        except UserZT.DoesNotExist:
+            return Response({'message': 'No se ha registro o existe algun error'}, status=status.HTTP_404_NOT_FOUND)
+
+class trabajaAppView(viewsets.ModelViewSet):
+    serializer_class = trabajaSerializer
+    queryset = Trabaja.objects.all()
+
+
+

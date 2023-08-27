@@ -41,7 +41,6 @@ INSTALLED_APPS = [
     'corsheaders',
     'appHCI',
     'landingPage',
-    'systemZT',
     'accessApp',
     'rest_framework',
     'data_gen',
@@ -95,14 +94,16 @@ WSGI_APPLICATION = 'appHCI.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
+
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'systemZT',
+        'NAME': 'ZT',
         'USER': 'root',
         'PASSWORD': 'Oso2020Oso',
         'HOST': 'localhost',  # O la dirección IP de tu servidor MySQL
         'PORT': '3306',       # El puerto por defecto de MySQL
     },
+
     
 }
 
